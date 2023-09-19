@@ -1,11 +1,9 @@
+// Importing necessary modules.
 const express = require('express');
-
 const routes = require('./controllers');
 const expressHandlebars = require('express-handlebars');
-
 const helpers = require("./utils/helpers");
 const path = require("path");
-
 const session = require('express-session');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -52,5 +50,6 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
 
 // Mini project 14 code structure & code snippets.

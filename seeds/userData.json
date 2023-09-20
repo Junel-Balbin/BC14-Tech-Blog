@@ -1,15 +1,20 @@
 [
-    {
-      "first_name": "Junel",
-      "last_name": "Balbin",
-      "email": "junel@gmail.com",
-      "password": "123abc"
-    },
-    {
-      "first_name": "Erwin",
-      "last_name": "Pamintuan",
-      "email": "pamintuan@gmail.com",
-      "password": "123abc"
-    }
-  ]
-  
+  {
+    "first_name": "Clark",
+    "last_name": "Kent",
+    "email": "superman@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "first_name": "Diana",
+    "last_name": "Prince",
+    "email": "wonderwoman@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "first_name": "Bruce",
+    "last_name": "Wayne",
+    "email": "batman@gmail.com",
+    "password": "password12345"
+  }
+]

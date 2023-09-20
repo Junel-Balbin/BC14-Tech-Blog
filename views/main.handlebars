@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <title>The Tech Blog</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            {{#unless logged_in}}
+            <li>
+                <a href="/user/login">Login</a>
+            </li>
+            {{/unless}}
+            {{#if logged_in}}
+            <li>
+                <a href="/user/logout">Logout</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+    <h1 class="app-title">Tech Blog</h1>
+  </header>
+  <main class="justify-space-between">
+  
+        {{{body}}}
+
+  </main>
+</body>
+</html>

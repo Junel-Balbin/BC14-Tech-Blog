@@ -1,22 +1,22 @@
 [
     {
         "comment": "Very Nice!",
-        "blogpost_id" : 1
+        "post_id" : 1
     },
     {
         "comment": "You're so cool!",
-        "blogpost_id" : 2
+        "post_id" : 2
     },
     {
         "comment": "Wow, you're amazing!",
-        "blogpost_id" : 3
+        "post_id" : 3
     },
     {
         "comment": "You're best hero ever!",
-        "blogpost_id" : 4
+        "post_id" : 4
     },
     {
         "comment": "Keep up the great work!",
-        "blogpost_id" : 5
+        "post_id" : 5
     }
 ]

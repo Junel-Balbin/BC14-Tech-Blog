@@ -1,4 +1,4 @@
-{{#each blogpost as |post|}}
+{{#each post as |post|}}
       {{> post_card}}
       {{#each comments as |cmnt|}}
         <div class="card">
@@ -7,7 +7,7 @@
         </div>
       {{/each}}
 
-      <script> let blogpost_id = {{post.id}}</script>
+      <script> let post_id = {{post.id}}</script>
 
       <div id="newcomment">
         <textarea style="width:100%;" id="newcommenttext" rows="5"></textarea>

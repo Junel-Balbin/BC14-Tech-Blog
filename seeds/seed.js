@@ -13,6 +13,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  for (const post of postData) {
+    await Post.create({
+      ...post,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
   for (const comment of commentData) {
     let userid = users[Math.floor(Math.random() * users.length)].id
     if (commentData[2] === comment)
@@ -22,14 +29,7 @@ const seedDatabase = async () => {
       user_id: userid,
     });
   }
-
-  for (const post of postData) {
-    await Post.create({
-      ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
+  
 
   process.exit(0);
 };

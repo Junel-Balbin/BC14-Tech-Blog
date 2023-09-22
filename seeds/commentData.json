@@ -10,13 +10,5 @@
     {
         "comment": "Wow, you're amazing!",
         "post_id" : 3
-    },
-    {
-        "comment": "You're best hero ever!",
-        "post_id" : 4
-    },
-    {
-        "comment": "Keep up the great work!",
-        "post_id" : 5
     }
 ]

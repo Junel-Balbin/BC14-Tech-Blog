@@ -3,7 +3,7 @@ const homeRoutes = require("./homeRoutes");
 const dashboardRoutes = require("./dashboardRoutes");
 const authRoutes = require("./authRoutes");
 const apiRoutes = require("./api");
-const postRoutes = require('./postRoute')
+const postRoutes = require('./postRoutes')
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);

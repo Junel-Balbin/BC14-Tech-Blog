@@ -20,3 +20,6 @@ router.get("/logout", (req, res, next) => {
 });
 
 module.exports = router;
+
+
+// Template Structure and Code Snippets from Mini Project 14.

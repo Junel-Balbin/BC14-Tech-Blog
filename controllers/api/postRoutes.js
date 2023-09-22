@@ -1,46 +1,26 @@
-const router = require("express").Router();
-const { Post } = require("../../models");
-const { apiAuth } = require("../../utils/auth")
+const router = require('express').Router();
+const { Post, Comment, User } = require('../../models');
 
-// Get route.
-router.get("/:id", async (req, res) => {
 
-    try {
-      const postData = await Post.findAll({
-        where: {
-          id: req.params.id,
-        },
-        include: [{ all: true, nested: true }],
-      });
-
-      if (!postData) {
-        res.status(404).json({ message: 'No post found with this id!' });
-        return;
-      }
-      res.status(200).json(postData);
-
-    } catch (err) {
-      res.status(500).json(err);
-    }
-});
-
-// Get route.
-router.get("/", async (req, res) => {
-
+router.get('/', async (req, res) => {
   try {
-    const posts = await Post.findAll({
-      include: [{ all: true, nested: true }],
+    const postData = await Post.findAll({ 
+      include: [{ model: User },{ model: Comment }],
     });
-    res.status(200).json(posts);
+
+    res.status(200).json(postData);
   } catch (err) {
-    console.log(err)
     res.status(400).json(err);
   }
 });
 
 
-router.post("/", apiAuth , async (req, res) => {
+router.post('/', async (req, res) => {
   try {
+    if (!req.session.logged_in) {
+      res.status(401).json('Cannot Post.');
+      return
+    }
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
@@ -48,15 +28,18 @@ router.post("/", apiAuth , async (req, res) => {
 
     res.status(200).json(newPost);
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
 
-// Update a Post.
-// http;//localhost:3001/api/posts/1
-router.put("/:id", apiAuth, async (req, res) => {
-  try {
 
+router.put('/:id', async (req, res) => {
+  try {
+    if (!req.session.logged_in) {
+      res.status(401).json('Cannot Update Post.');
+      return
+    }
     const updatedPost = await Post.update({
       ...req.body,
       user_id: req.session.user_id,
@@ -72,28 +55,84 @@ router.put("/:id", apiAuth, async (req, res) => {
     console.log(err)
     res.status(400).json(err);
   }
-
 });
 
 
-
-// Delete a post
-router.delete("/:id", apiAuth, async (req, res) => {
+router.get('/user', async (req, res) => {
   try {
-    const delData = await Post.destroy({
+
+    if (!req.session.logged_in) {
+      res.status(401).json('Get Unsuccessful.');
+      return
+    }
+
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model:Comment }],
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No Post found by User.'  + req.session.user_id});
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/:id', async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{ all: true, nested: true }],
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No Post found by ID.' });
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.delete('/:id', async (req, res) => {
+  try {
+
+    if (!req.session.logged_in) {
+      res.status(401).json('Cannot delete.');
+      return
+    }
+
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-    if (!delData) {
-      res.status(404).json({ message: 'No goal found with this id!' });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No Post found by ID.' });
       return;
     }
-    res.status(200).json(delData);
+
+    res.status(200).json(postData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
 module.exports = router;
+
+
+// Template Structure and Code Snippets from Mini Project 14.

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
+const { apiAuth } = require("../../utils/auth")
 
 
 router.get('/', async (req, res) => {
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/', apiAuth, async (req, res) => {
   try {
     if (!req.session.logged_in) {
       res.status(401).json('Cannot Post.');
@@ -34,7 +35,7 @@ router.post('/', async (req, res) => {
 });
 
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', apiAuth, async (req, res) => {
   try {
     if (!req.session.logged_in) {
       res.status(401).json('Cannot Update Post.');
@@ -106,7 +107,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', apiAuth, async (req, res) => {
   try {
 
     if (!req.session.logged_in) {

@@ -1,9 +1,8 @@
 const router = require("express").Router();
-
 const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { logAuth } = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', logAuth, async (req, res) => {
     try {
         const posts = await Post.findAll({
             where: {
@@ -25,11 +24,11 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/create', withAuth, (req, res) => {
+router.get('/create', logAuth, (req, res) => {
     res.render("addpost",{logged_in: req.session.logged_in});
 });
 
-router.get('/update/:id', withAuth, async (req, res) => {
+router.get('/update/:id', logAuth, async (req, res) => {
     try {
         console.log("Request ID :: " + req.params.id)
         const post = await Post.findOne({

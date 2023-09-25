@@ -1,16 +1,16 @@
 [
     {
-      "title": "Superman",
+      "title": "Superman: The Last Son of Krypton.",
       "content": "Superman also known as Clark Kent, is an iconic superhero. Possessing extraordinary abilities like superhuman strength, flight and heat vision. He uses his powers to protect the citizens of Metropolis from all manner of threats. Balancing his heroic alter ego with his civilian life as a mild-mannered reporter, Clark Kent, he stands as a symbol of hope and an unwavering defender of truth and justice.",
       "user_id" : 1
     },
     {
-      "title": "Wonder Woman",
+      "title": "Wonder Woman: Princess of Themyscira.",
       "content": "Wonder Woman known as Diana Prince, is a powerful and revered Amazonian warrior princess. Endowed with superhuman strength, agility and an unbreakable Lasso of Truth. She champions justice and peace in the world of mortals. Balancing her divine heritage with a sense of compassion. Wonder Woman stands as an emblem of empowerment and a beacon of hope for humanity.",
       "user_id" : 2
     },
     {
-      "title": "Batman",
+      "title": "Batman: The Dark Knight.",
       "content": "Batman alter ego of billionaire Bruce Wayne, is a vigilante crime-fighter in Gotham City. Driven by a tragic childhood trauma, he relies on his intellect, martial arts prowess and a vast array of gadgets to combat crime and bring justice to the city's darkest corners. Operating from the shadows, Batman is a symbol of fear to criminals, embodying the idea that even without superpowers, one can make a difference.",
       "user_id" : 3
     }

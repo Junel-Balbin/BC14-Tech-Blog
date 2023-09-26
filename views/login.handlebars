@@ -1,4 +1,4 @@
-<div class="columns" style="height: 100vh;">
+<div style="float: right;" class="columns">
   <div class="column"></div> 
 
   <div class="column is-4">
@@ -6,14 +6,14 @@
       <div class="field">
         <label class="label" for="login_email">Username</label>
         <div class="control">
-          <input id="login_email" class="input login_email" type="text" placeholder="Email">
+          <input id="login_email" class="input login_email" type="text">
         </div>
       </div>
 
       <div class="field">
         <label class="label" for="login_password">Password</label>
         <div class="control has-icons-left">
-          <input id="login_password" class="input login_password" type="password" placeholder="Password">
+          <input id="login_password" class="input login_password" type="password">
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
@@ -24,13 +24,16 @@
         <div class="control">
           <button id="submitButton" class="button is-link">Login</button>
         </div>
-        <div class="field is-grouped"> </div>
         <div class="control">
-          <button class="button is-link"><a  class="button is-link" href="/user/signup">Sign Up</a></button>
+          <button class="button is-link">
+            <a href="/user/signup">Sign Up</a>
+          </button>
         </div>
       </div>
     </form>
   </div>
 </div>
 <script src="/js/login.js"></script>
+
+
 <!-- Implemented template from previous Project 2 to help with handlebars. -->

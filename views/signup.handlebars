@@ -1,42 +1,39 @@
-<div class="columns" style="height: 100vh;">
+<div style="float: right;" class="columns">
   <div class="column"></div>
 
   <div class="column is-4">
     <div class="field">
       <label class="label">First Name</label>
       <div class="control">
-        <input id="firstNameInput" class="input" type="text" placeholder="First Name">
+        <input id="firstNameInput" class="input" type="text">
       </div>
     </div>
 
     <div class="field">
       <label class="label">Last Name</label>
       <div class="control">
-        <input id="lastNameInput" class="input" type="text" placeholder="Last Name">
+        <input id="lastNameInput" class="input" type="text">
       </div>
     </div>
 
     <div class="field">
       <label class="label">Email</label>
       <div class="control has-icons-left has-icons-right">
-        <input id="emailInput" class="input is-danger" type="email" placeholder="Email input" value="">
+        <input id="emailInput" class="input is-danger" type="email" value="">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
-        <span class="icon is-small is-right">
-        </span>
       </div>
-      <p class="help is-danger">This email is invalid</p>
     </div>
 
     <div class="field">
       <label class="label">Password</label>
-      <p class="control has-icons-left">
-        <input id="passwordInput" class="input" type="password" placeholder="Password">
+      <div class="control has-icons-left">
+        <input id="passwordInput" class="input" type="password">
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
         </span>
-      </p>
+      </div>
     </div>
 
     <div class="field is-grouped">
@@ -44,10 +41,14 @@
         <button id="submitButton" class="button is-link">Submit</button>
       </div>
       <div class="control">
-        <button class="button is-link is-light"><a class="button is-link is-light"    href="/user/login"> Cancel </a> </button>
+        <button class="button is-link is-light">
+          <a class="button is-link is-light" href="/user/login">Cancel</a>
+        </button>
       </div>
     </div>
   </div>
 </div>
 <script src="/js/signup.js"></script>
+
+
 <!-- Implemented template from previous Project 2 to help with handlebars. -->

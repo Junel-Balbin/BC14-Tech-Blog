@@ -1,20 +1,20 @@
 [
   {
     "name": "Clark Kent",
-    "email": "superman@gmail.com",
     "username": "clark",
+    "email": "superman@gmail.com",
     "password": "password12345"
   },
   {
     "name": "Diana Prince",
-    "email": "wonderwoman@gmail.com",
     "username": "diana",
+    "email": "wonderwoman@gmail.com",
     "password": "password12345"
   },
   {
     "name": "Bruce Wayne",
-    "email": "batman@gmail.com",
     "username": "bruce",
+    "email": "batman@gmail.com",
     "password": "password12345"
   }
 ]

@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
-const { apiAuth } = require("../../utils/auth")
-
 
 router.get('/', async (req, res) => {
   try {
@@ -15,11 +13,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-router.post('/', apiAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     if (!req.session.logged_in) {
-      res.status(401).json('Cannot Post.');
+      res.status(401).json('Cannot Post!');
       return
     }
     const newPost = await Post.create({
@@ -34,11 +31,10 @@ router.post('/', apiAuth, async (req, res) => {
   }
 });
 
-
-router.put('/:id', apiAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     if (!req.session.logged_in) {
-      res.status(401).json('Cannot Update Post.');
+      res.status(401).json('Cannot Update Post!');
       return
     }
     const updatedPost = await Post.update({
@@ -58,12 +54,11 @@ router.put('/:id', apiAuth, async (req, res) => {
   }
 });
 
-
 router.get('/user', async (req, res) => {
   try {
 
     if (!req.session.logged_in) {
-      res.status(401).json('Get Unsuccessful.');
+      res.status(401).json('Get Unsuccessful!');
       return
     }
 
@@ -75,7 +70,7 @@ router.get('/user', async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No Post found by User.'  + req.session.user_id});
+      res.status(404).json({ message: 'No post found by User.'  + req.session.user_id});
       return;
     }
 
@@ -84,7 +79,6 @@ router.get('/user', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 router.get('/:id', async (req, res) => {
   try {
@@ -96,7 +90,7 @@ router.get('/:id', async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No Post found by ID.' });
+      res.status(404).json({ message: 'No post found by ID.' });
       return;
     }
 
@@ -106,8 +100,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
-router.delete('/:id', apiAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
 
     if (!req.session.logged_in) {

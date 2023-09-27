@@ -3,7 +3,7 @@
   {{#each comments as |cmnt|}}
     <div class="card">
       <h3 class="card-header"></h3>
-      <p class="card-body">{{comment}}<br/>Created by {{user.name}} on {{formatDate date_created 'MM/DD/YYYY'}}</p>
+      <p class="card-body">{{comment}}<br/>Commented by {{user.name}} on {{formatDate date_created 'MM/DD/YYYY'}}</p>
     </div>
   {{/each}}
 

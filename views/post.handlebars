@@ -3,14 +3,15 @@
   {{#each comments as |cmnt|}}
     <div class="card">
       <h3 class="card-header"></h3>
-      <h5 class="card-body">{{comment}}<br/><h5 style="font-weight: lighter;">Commented by {{user.name}} on {{formatDate date_created 'MM/DD/YYYY'}}</h5>
+      <h5 class="card-body">{{comment}}</h5>
+      <h6 style="font-weight: lighter;">Commented by {{user.name}} {{formatDate date_created 'MM/DD/YYYY'}}</h6>
     </div>
   {{/each}}
 
   <script> let post_id = {{post.id}}</script>
 
   <div id="newcomment">
-    <textarea style="width:100%;" id="newcommenttext" rows="5"></textarea>
+    <textarea id="newcommenttext"></textarea>
     <button id="addcomment" class="btn" type="button">Add Comment</button>
   </div>
 {{/each}}

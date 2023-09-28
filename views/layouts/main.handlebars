@@ -13,19 +13,19 @@
   <header class="hero">
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a style="font-size: 20px;" href="/">Home</a></li>
+        <li><a style="font-size: 20px;" href="/dashboard">Dashboard</a></li>
         {{#unless logged_in}}
-        <li><a href="/user/login">Login</a></li>
+        <li><a style="font-size: 20px;" href="/user/login">Login</a></li>
         {{/unless}}
         {{#if logged_in}}
-        <li><a href="/user/logout">Logout</a></li>
+        <li><a style="font-size: 20px;" href="/user/logout">Logout</a></li>
         {{/if}}
       </ul>
     </nav>
     
     <div style="float: right;">
-    <h1 class="app-title">Hero Tech Blog</h1></div>
+    <h1 style="font-style: italic;" class="app-title">Hero Tech Blog</h1></div>
   </header>
   <main>
 

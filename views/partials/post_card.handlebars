@@ -1,10 +1,10 @@
 <div class="card">
     <h4 class="card-header">
-        <div>{{title}}</div>
-        <div style="font-weight: lighter;">Post by: {{user.name}} {{formatDate date_created 'MM/DD/YYYY'}}</div>
+        <div style="padding: 0px 20px;">{{title}}</div>
+        <div style="font-weight: lighter; padding: 0px 20px;">Post by: {{user.name}} {{formatDate date_created 'MM/DD/YYYY'}}</div>
     </h4>
     <div>
-    <p class="card-body">
+    <p style="padding: 0px 40px;" class="card-body">
         {{{content}}} <!-- Use triple curly braces to render HTML content -->
     </p>
     </div>

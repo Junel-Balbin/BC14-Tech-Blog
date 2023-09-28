@@ -1,8 +1,8 @@
 document.getElementById("updatePost").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const content = document.getElementById("update_content").value.trim();
     const title = document.getElementById("update_title").value.trim();
+    const content = document.getElementById("update_content").value.trim();
     
     fetch('/api/posts/' + id, {
         method: 'PUT',
@@ -10,8 +10,8 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
             'content-type': 'application/json',
         },
         body: JSON.stringify(  {
-            "content": content,
-            "title": title
+            "title": title,
+            "content": content
           }),
     }).then((result) => {
         if (!result.ok) {
@@ -29,8 +29,8 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
 document.getElementById("deletePost").addEventListener("click", (e) => {
     e.preventDefault();
 
-    const content = document.getElementById("update_content").value.trim();
     const title = document.getElementById("update_title").value.trim();
+    const content = document.getElementById("update_content").value.trim();
     
     fetch('/api/posts/' + id, {
         method: 'DELETE',

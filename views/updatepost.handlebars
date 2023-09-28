@@ -1,0 +1,19 @@
+<div class="card">
+  <h3 class="card-header">Update Post</h3>
+
+<form id="updatePost" class="card-body" style="font-size: large;">
+    <div>
+        <label for="update_title">Title</label>
+        <input style="width: 100%; font-size: medium;" type="text" id="update_title" value="{{post.title}}">
+    </div>
+    <div>
+        <label for="update_content">Content</label>
+        <textarea style="width: 100%; font-size: medium;" rows="5" id="update_content" >{{post.content}}</textarea>
+    </div>
+    <button class="btn">Update</button>
+    <button class="btn" id="deletePost" type="button">Delete</button>
+</form>
+</div>
+
+<script> let id = {{post.id}}</script>
+<script src="/js/updatepost.js"></script>

@@ -23,7 +23,7 @@ router.get('/:id', logAuth, async (req, res) => {
             logged_in: req.session.logged_in,
         });
     } catch (e) {
-        console.error(e);
+        console.error(error);
         res.status(500).end();
     }
 });

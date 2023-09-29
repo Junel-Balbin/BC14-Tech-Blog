@@ -19,7 +19,7 @@ document.getElementById("createForm").addEventListener("submit", (e) => {
           }),
     }).then((result) => {
         if (!result.ok) {
-            alert("Unsuccessful Sign Up.");
+            alert("Unsuccessful Due To Unsecure Invalid Password.");
             return;
         }
 

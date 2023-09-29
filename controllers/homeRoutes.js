@@ -4,19 +4,17 @@ const { Post, User, Comment } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const posts = await Post.findAll({
-            include: [{ model: User},{ model: Comment }],
+            include: [{ model: User }, { model: Comment }],
         });
 
-        const plainPosts = posts.map((post) => {
-            return post.get({ plain: true });
-        });
+        const plainPosts = posts.map(post => post.get({ plain: true }));
 
         res.render('home', {
             post: plainPosts,
             logged_in: req.session.logged_in,
         });
-    } catch (e) {
-        console.error(e);
+    } catch (error) {
+        console.error(error);
         res.status(500).end();
     }
 });

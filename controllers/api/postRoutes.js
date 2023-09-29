@@ -3,8 +3,11 @@ const { Post, Comment, User } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll({ 
-      include: [{ model: User },{ model: Comment }],
+    const postData = await Post.findAll({
+      include: [
+        { model: User },
+        { model: Comment }
+      ],
     });
 
     res.status(200).json(postData);
@@ -16,9 +19,9 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     if (!req.session.logged_in) {
-      res.status(401).json('Cannot Post!');
-      return
+      return res.status(401).json('Cannot Post!');
     }
+
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
@@ -26,7 +29,7 @@ router.post('/', async (req, res) => {
 
     res.status(200).json(newPost);
   } catch (err) {
-    console.log(err)
+    console.error(err);
     res.status(400).json(err);
   }
 });
@@ -34,44 +37,41 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     if (!req.session.logged_in) {
-      res.status(401).json('Cannot Update Post!');
-      return
+      return res.status(401).json('Cannot Update Post!');
     }
-    const updatedPost = await Post.update({
-      ...req.body,
-      user_id: req.session.user_id,
-    }, {
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+
+    const updatedPost = await Post.update(
+      { ...req.body, user_id: req.session.user_id },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        }
       }
-    });
+    );
 
     res.status(200).json(updatedPost);
   } catch (err) {
-    console.log(err)
+    console.error(err);
     res.status(400).json(err);
   }
 });
 
 router.get('/user', async (req, res) => {
   try {
-
     if (!req.session.logged_in) {
-      res.status(401).json('Get Unsuccessful!');
-      return
+      return res.status(401).json('Get Unsuccessful!');
     }
 
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      include: [{ model:Comment }],
+      include: [{ model: Comment }],
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found by User.'  + req.session.user_id});
-      return;
+      return res.status(404).json({ message: `No post found by User ${req.session.user_id}.` });
     }
 
     res.status(200).json(postData);
@@ -83,15 +83,12 @@ router.get('/user', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const postData = await Post.findOne({
-      where: {
-        id: req.params.id,
-      },
+      where: { id: req.params.id },
       include: [{ all: true, nested: true }],
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found by ID.' });
-      return;
+      return res.status(404).json({ message: 'No post found by ID.' });
     }
 
     res.status(200).json(postData);
@@ -102,10 +99,8 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-
     if (!req.session.logged_in) {
-      res.status(401).json('Cannot delete.');
-      return
+      return res.status(401).json('Cannot delete.');
     }
 
     const postData = await Post.destroy({
@@ -116,8 +111,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No Post found by ID.' });
-      return;
+      return res.status(404).json({ message: 'No Post found by ID.' });
     }
 
     res.status(200).json(postData);
@@ -127,6 +121,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
 
 
 // Template Structure and Code Snippets from Mini Project 14.

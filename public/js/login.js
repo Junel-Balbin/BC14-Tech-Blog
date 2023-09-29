@@ -26,4 +26,4 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 });
 
 
-// Template Structure and Code Snippets from Mini Project 14.
+// Template Structure and Code Snippets from Mini Project 14 & Group Project 2.

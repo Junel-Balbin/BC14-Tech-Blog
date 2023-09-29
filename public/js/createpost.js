@@ -23,4 +23,6 @@ document.getElementById("createPost").addEventListener("submit", (e) => {
             window.location = '/dashboard';
         });
     });
-}); 
+});
+
+// Template Structure and Code Snippets from Mini Project 14 & Group Project 2.

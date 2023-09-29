@@ -28,9 +28,6 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
 
 document.getElementById("deletePost").addEventListener("click", (e) => {
     e.preventDefault();
-
-    const title = document.getElementById("update_title").value.trim();
-    const content = document.getElementById("update_content").value.trim();
     
     fetch('/api/posts/' + id, {
         method: 'DELETE',
@@ -48,3 +45,6 @@ document.getElementById("deletePost").addEventListener("click", (e) => {
         });
     });
 });
+
+
+// Template Structure and Code Snippets from Mini Project 14 & Group Project 2.

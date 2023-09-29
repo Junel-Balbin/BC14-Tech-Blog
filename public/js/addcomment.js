@@ -30,3 +30,6 @@ if (window.location.search && window.location.search === '?hide=true') {
         });
     }); 
 }
+
+
+// Template Structure and Code Snippets from Mini Project 14 & Group Project 2.

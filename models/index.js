@@ -32,7 +32,7 @@ Comment.belongsTo(User,{
 })
 
 // Export the User, Post & Comment.
-module.exports = { User, Post , Comment};
+module.exports = { User, Post, Comment};
 
 
 // Template Structure and Code Snippets from Mini Project 14 & Group Project 2.

@@ -30,7 +30,7 @@ router.get('/', logAuth, async (req, res) => {
 
 // Route to render the create post page.
 router.get('/create', logAuth, (req, res) => {
-    res.render("addpost", { logged_in: req.session.logged_in });
+    res.render("newpost", { logged_in: req.session.logged_in });
 });
 
 // Route to render the update post page.

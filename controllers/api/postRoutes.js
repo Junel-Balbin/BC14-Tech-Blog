@@ -1,6 +1,8 @@
+// Import Express router & models Post, Comment & User.
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
 
+// Route to get all posts with User & comments.
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -16,6 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to create a new post.
 router.post('/', async (req, res) => {
   try {
     if (!req.session.logged_in) {
@@ -34,6 +37,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Route to update a post.
 router.put('/:id', async (req, res) => {
   try {
     if (!req.session.logged_in) {
@@ -57,6 +61,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Route to get all posts by a specific user.
 router.get('/user', async (req, res) => {
   try {
     if (!req.session.logged_in) {
@@ -80,6 +85,7 @@ router.get('/user', async (req, res) => {
   }
 });
 
+// Route to get a specific post by its ID.
 router.get('/:id', async (req, res) => {
   try {
     const postData = await Post.findOne({
@@ -97,6 +103,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Route to delete a specific post by its ID.
 router.delete('/:id', async (req, res) => {
   try {
     if (!req.session.logged_in) {
@@ -120,8 +127,8 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Exports the router.
 module.exports = router;
-
 
 
 // Template Structure and Code Snippets from Mini Project 14.

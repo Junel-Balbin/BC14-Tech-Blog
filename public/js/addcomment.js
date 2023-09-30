@@ -1,15 +1,15 @@
-console.log(window.location.search)
-
+// Check if query string exists and is '?hide=true' then hide new comment element.
 if (window.location.search && window.location.search === '?hide=true') {
     document.getElementById("newcomment").style.display = "none"
 
 } else {
-
+    // Add event listener for clicking the addcomment button.
     document.getElementById("addcomment").addEventListener("click", (e) => {
         e.preventDefault();
-
+        // Get the value of the new comment & remove leading/trailing whitespace.
         const comment = document.getElementById("newcommenttext").value.trim();
         
+        // Send a POST request to create a new comment.
         fetch('/api/comments', {
             method: 'POST',
             headers: {
@@ -24,6 +24,7 @@ if (window.location.search && window.location.search === '?hide=true') {
                 alert("Error, cannot create post");
                 return;
             }
+            // Redirect to the post page after successfully creating comment.
             result.json().then(() => {
                 window.location = '/post/'+post_id+'?hide=true';
             });

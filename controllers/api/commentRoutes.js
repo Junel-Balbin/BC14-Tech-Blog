@@ -1,10 +1,14 @@
+// Import Express router & Comment model.
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
+// Route to handle creating a new comment.
 router.post('/', async (req, res) => {
   try {
+    // Retrieve the user ID from the session or request body.
     const userId = req.session.user_id || req.body.user_id;
 
+    // Create a new comment using the Comment model.
     const newComment = await Comment.create({
       ...req.body,
       user_id: userId
@@ -17,6 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Exports the router.
 module.exports = router;
 
 

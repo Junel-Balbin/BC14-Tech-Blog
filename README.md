@@ -25,7 +25,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * `localhost:3001`
 
 ## Usage:
-* [Deployed Heroku: Tech Blog]()
+* [Deployed Heroku: Tech Blog](https://oreh-hcet-golb-e2c2399141b9.herokuapp.com/)
 
 ## Application User Interface:
 <img src="./public/assets/images/screenshot.png">

@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 3001;
 
 // Session configuration.
 const sessionObj = {
+  secret: 'One super secret key',
   cookie: {maxAge : 90000},
   resave: false,
   saveUninitialized: true,
